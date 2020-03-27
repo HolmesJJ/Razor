@@ -1,0 +1,182 @@
+@import "mixins/mixins";
+@import "mixins/utils";
+@import "common/var";
+
+@include b(form) {
+  @include m(label-left) {
+    & .rz-form-item__label {
+      text-align: left;
+    }
+  }
+  @include m(label-top) {
+    & .rz-form-item__label {
+      float: none;
+      display: inline-block;
+      text-align: left;
+      padding: 0 0 10px 0;
+    }
+  }
+  @include m(inline) {
+    & .rz-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+    & .rz-form-item__label {
+      float: none;
+      display: inline-block;
+    }
+    & .rz-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &.rz-form--label-top .rz-form-item__content {
+      display: block;
+    }
+  }
+}
+@include b(form-item) {
+  margin-bottom: $--space-base;
+  @include utils-clearfix;
+
+  .rz-form-item__error{
+    .rz-form-item__icon{
+      padding-right: 8px;
+    }
+  }
+
+  & .rz-form-item {
+    margin-bottom: 0;
+  }
+
+  & .rz-input__validateIcon {
+    display: none;
+  }
+
+  @include m(medium) {
+    .rz-form-item__label {
+      line-height: 36px;
+    }
+    .rz-form-item__content {
+      line-height: 36px;
+    }
+  }
+  @include m(small) {
+    .rz-form-item__label {
+      line-height: 32px;
+    }
+    .rz-form-item__content {
+      line-height: 32px;
+    }
+    &.rz-form-item {
+      margin-bottom: 18px;
+    }
+    .rz-form-item__error {
+      padding-top: 2px;
+    }
+  }
+  @include m(mini) {
+    .rz-form-item__label {
+      line-height: 28px;
+    }
+    .rz-form-item__content {
+      line-height: 28px;
+    }
+    &.rz-form-item {
+      margin-bottom: 18px;
+    }
+    .rz-form-item__error {
+      padding-top: 1px;
+    }
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    color: $--color-text-secondary;
+    line-height: 40px;
+    padding: 0 20px 0 0;
+    box-sizing: border-box;
+  }
+  @include e(content) {
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    @include utils-clearfix;
+
+    .rz-input-group {
+      vertical-align: middle;
+    }
+  }
+  @include e(error) {
+    color: $--color-danger;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    @include m(inline) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @include when(required) {
+    @include pseudo("not(.is-no-asterisk)") {
+      & > .rz-form-item__label:before {
+        content: "*";
+        color: $--color-danger;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+    & .rz-input__inner,
+    & .rz-textarea__inner {
+      &,
+      &:focus {
+        border-color: $--color-danger;
+      }
+    }
+    & .rz-input-group__append,
+    & .rz-input-group__prepend {
+      & .rz-input__inner {
+        border-color: transparent;
+      }
+    }
+    .rz-input__validateIcon {
+      color: $--color-danger;
+    }
+  }
+  @include when(success) {
+    & .rz-input__inner,
+    & .rz-textarea__inner {
+      &,
+      &:focus {
+        border-color: $--color-success;
+      }
+    }
+    & .rz-input-group__append,
+    & .rz-input-group__prepend {
+      & .rz-input__inner {
+        border-color: transparent;
+      }
+    }
+    .rz-input__validateIcon {
+      color: $--color-success;
+    }
+  }
+  @include m(feedback) {
+    .rz-input__validateIcon {
+      display: inline-block;
+    }
+  }
+}

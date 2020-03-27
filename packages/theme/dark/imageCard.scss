@@ -1,0 +1,172 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@mixin shadow {
+  box-shadow: 0px 0px 0px 1px $--color-primary-hover;
+}
+
+@include b(image-card) {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  vertical-align: top;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: $--border-radius-base;
+  border: 1px solid $--border-color-base;
+  background-color: $--background-color-secondary;
+
+  @include e(content) {
+    box-sizing: border-box;
+    padding: $--space-mini;
+  }
+
+  @include e(wrapper) {
+    width: max-content;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+
+  // 质量分数
+  @include e(score) {
+    color: $--color-white;
+    border-radius: $--border-radius-base $--border-radius-base 0 0;
+    width: 40px;
+    height: 18px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    color: $--color-white;
+    font-size: 14px;
+    background-color: rgba($--color-primary, 0.8);
+    @include m(actived) {
+      background: linear-gradient(to right, transparent, $--color-primary 60%);
+    }
+  }
+
+  @include when(hovered) {
+    z-index: 199;
+    border-color: $--color-primary-hover;
+    &.is-actived {
+      border-color: $--color-primary-hover;
+    }
+    // 使用阴影来作为hover边框加粗，可以避免破坏布局
+    @include shadow();
+  }
+
+  @include when(transition) {
+    &.is-hovered {
+      transform: scale(1.1);
+    }
+  }
+
+  @include when(actived) {
+    background-color: $--background-color-border;
+    border-color: $--background-color-border;
+  }
+
+  @include e(others) {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 20px;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    // border-bottom-right-radius: 0px;
+    background: $--background-color-linear-gradient;
+    z-index: 1;
+    .rz-checkbox__input.is-checked,
+    .rz-checkbox__input.is-hovered,
+    .rz-checkbox__input.is-focus {
+      .rz-checkbox__inner {
+        border-color: transparent;
+
+        &::after {
+          margin-left: -1px;
+          margin-top: -1px;
+        }
+      }
+    }
+    .rz-checkbox__input:not(.is-disabled):hover {
+      box-shadow: none;
+    }
+    .rz-checkbox__input,
+    .rz-checkbox__input.is-checked {
+      .rz-checkbox__inner::after {
+        margin: 0;
+        border-color: $--color-white;
+      }
+    }
+  }
+
+  // 勾选框
+  @include e(select) {
+    margin-left: 1px;
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    &.rz-checkbox {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(107, 56, 184, 1),
+        rgba(15, 170, 156, 1)
+      );
+      border-width: 2px;
+      border-radius: 4px;
+    }
+
+    .rz-checkbox__input {
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rz-checkbox__inner {
+      width: 16px;
+      height: 16px;
+      border: none;
+      background-color: #4963ae;
+      border-color: transparent;
+      background-clip: content-box, padding-box;
+      &:hover,
+      &:active {
+        border-color: transparent;
+      }
+    }
+  }
+
+  @include e(slabel) {
+    color: $--color-white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $--space-undersized;
+    height: 100%;
+    flex-grow: 1;
+  }
+
+  @include m(vertical) {
+    flex-direction: column;
+    @include e(content) {
+      padding-top: 7px;
+      border-top: 1px solid $--background-color-border;
+    }
+  }
+}

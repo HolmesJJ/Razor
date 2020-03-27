@@ -1,0 +1,60 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(scroll-box){
+  height: $--space-168;
+  position: relative;
+  overflow: hidden;
+  
+  @include when(vertical){
+    height: 100%;
+  }
+
+  @include e(operator){
+    position: absolute;
+    height: $--space-168;
+    line-height: $--space-168;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 10;
+
+    &__left, &__right{
+      top: 0;
+      width: $--space-vast - $--space-undersized;
+    }
+    &__up, &__down{
+      left: 0;
+      width: 100%;
+      text-align: center;
+      height: $--space-vast - $--space-undersized;
+      line-height: $--space-vast - $--space-undersized;
+    }
+    &__left{
+      left:0;
+      padding-left: $--space-undersized;
+      background:linear-gradient(90deg,rgba($--background-color-form,1) 0%,rgba($--background-color-form,0) 100%);
+    }
+    &__right{
+      right: 0;
+      text-align: right;
+      background:linear-gradient(90deg,rgba($--background-color-form,0) 0%,rgba($--background-color-form,1) 100%);
+    }
+    &__up{
+      top: 0;
+      background:linear-gradient(90deg,rgba($--background-color-form,1) 0%,rgba($--background-color-form,0) 100%);
+    }
+    &__down{
+      bottom:0;
+      background:linear-gradient(90deg,rgba($--background-color-form,1) 0%,rgba($--background-color-form,0) 100%);
+    }
+    .rz-icon{
+      height: 100%;
+      line-height: $--space-168;
+    }
+  }
+
+  @include e(container){
+    transition: transform 0.3s;
+    width: max-content;
+  }
+}

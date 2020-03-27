@@ -1,0 +1,125 @@
+@import "../common/var";
+@import "../mixins/scrollbar.scss";
+
+@include b(picker-panel) {
+  color: $--color-text-regular;
+  border: 1px solid $--background-color-border;
+  box-shadow: $--box-shadow-light;
+  background: $--background-color-secondary;
+  border-radius: $--border-radius-base;
+  line-height: 30px;
+  margin: 5px 0;
+
+  .popper__arrow {
+    visibility: hidden;
+  }
+
+  @include e((body, body-wrapper)) {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  @include e(content) {
+    position: relative;
+    margin: $--space-small;
+    background: $--background-color-secondary;
+    border-radius: $--border-radius-base;
+  }
+
+  @include e(footer) {
+    border-top: 1px solid $--background-color-border;
+    // padding: 4px;
+    padding: $--space-small $--space-medium;
+    text-align: right;
+    background: $--background-color-secondary;
+    position: relative;
+    font-size: 0;
+  }
+
+  @include e(shortcut) {
+    display: block;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    line-height: 28px;
+    font-size: 14px;
+    color: $--datepicker-font-color;
+    padding-left: 12px;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $--datepicker-text-hover-color;
+    }
+
+    &.active {
+      background-color: #e6f1fe;
+      color: $--datepicker-active-color;
+    }
+  }
+
+  // @include e(btn) {
+  //   border: 1px solid #dcdcdc;
+  //   color: #333;
+  //   line-height: 24px;
+  //   border-radius: 2px;
+  //   padding: 0 20px;
+  //   cursor: pointer;
+  //   background-color: transparent;
+  //   outline: none;
+  //   font-size: 12px;
+
+  //   &[disabled] {
+  //     color: #cccccc;
+  //     cursor: not-allowed;
+  //   }
+  // }
+
+  @include e(icon-btn) {
+    font-size: 12px;
+    color: $--datepicker-icon-color;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    margin-top: 8px;
+
+    &:hover {
+      color: $--datepicker-text-hover-color;
+    }
+
+    @include when(disabled) {
+      color: $--font-color-disabled-base;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @include e(link-btn) {
+    vertical-align: middle;
+  }
+}
+
+.rz-picker-panel *[slot="sidebar"],
+.rz-picker-panel__sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  border-right: 1px solid $--background-color-border;
+  box-sizing: border-box;
+  padding-top: 6px;
+  background-color: $--background-color-secondary;
+  overflow: auto;
+}
+
+.rz-picker-panel *[slot="sidebar"] + .rz-picker-panel__body,
+.rz-picker-panel__sidebar + .rz-picker-panel__body {
+  margin-left: 110px;
+}

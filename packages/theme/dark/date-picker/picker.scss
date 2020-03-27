@@ -1,0 +1,263 @@
+@import "../mixins/mixins";
+@import "../common/var";
+@import "../common/transition";
+
+@include b(date-editor) {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+
+  .rz-input__prefix {
+    i {
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+
+  @include e(wrapper) {
+    display: inline-flex;
+    align-items: center;
+
+    @include when(suffix) {
+      .rz-range-input {
+        width: 39%;
+      }
+    }
+    .rz-radio-group {
+      background-color: $--background-color-form;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      .rz-radio-button.is-active {
+        .rz-radio-button__inner {
+          background-color: $--background-color-form;
+          color: $--color-primary-hover;
+          border-color: transparent;
+          box-shadow: none;
+        }
+      }
+      .rz-radio-button__inner {
+        padding-left: $--space-mini;
+        padding-right: $--space-mini;
+        border: none;
+      }
+      .rz-radio-button:last-child {
+        .rz-radio-button__inner {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      .rz-radio-button:not(:last-child) {
+        border-right: 1px solid rgba($--background-color-border, 0.5);
+      }
+    }
+  }
+
+  &.has-radio {
+    border-left: 1px solid $--background-color-border;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &.rz-input,
+  &.rz-input__inner {
+    width: 220px;
+  }
+
+  @include m((monthrange)) {
+    &.rz-input,
+    &.rz-input__inner {
+      width: 300px;
+    }
+  }
+
+  @include m((daterange, timerange)) {
+    &.rz-input,
+    &.rz-input__inner {
+      width: 350px;
+    }
+  }
+
+  @include m(datetimerange) {
+    &.rz-input,
+    &.rz-input__inner {
+      width: 400px;
+    }
+  }
+
+  @include m(dates) {
+    .rz-input__inner {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .rz-icon-circle-close {
+    cursor: pointer;
+  }
+
+  .rz-range__icon {
+    font-size: 14px;
+    margin-left: 4px;
+    color: $--color-text-placeholder;
+    float: left;
+    line-height: 32px;
+  }
+
+  .rz-range-input {
+    appearance: none;
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: calc(39% + 15px);
+    text-align: center;
+    font-size: $--font-size-base;
+    color: $--color-text-regular;
+    background: transparent;
+
+    &::placeholder {
+      color: $--color-text-placeholder;
+    }
+  }
+
+  .rz-range-separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 5px;
+    margin: 0;
+    text-align: center;
+    line-height: 32px;
+    font-size: 14px;
+    width: 5%;
+    color: $--color-text-primary;
+    white-space: nowrap;
+    letter-spacing: -2px;
+  }
+
+  .rz-range__close-icon {
+    font-size: 14px;
+    color: $--color-text-placeholder;
+    width: 25px;
+    display: inline-block;
+    float: right;
+    line-height: 32px;
+  }
+}
+
+@include b(range-editor) {
+  &.rz-input__inner {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    padding-right: 2px;
+  }
+
+  .rz-range-input {
+    line-height: 1;
+  }
+
+  @include when(prefix) {
+    padding-left: 30px;
+  }
+
+  @include when(active) {
+    border-color: $--color-primary;
+
+    &:hover {
+      border-color: $--color-primary;
+    }
+  }
+
+  @include m(medium) {
+    &.rz-input__inner {
+      height: $--input-medium-height;
+    }
+
+    .rz-range-separator {
+      line-height: 28px;
+      font-size: $--input-medium-font-size;
+    }
+
+    .rz-range-input {
+      font-size: $--input-medium-font-size;
+    }
+
+    .rz-range__icon,
+    .rz-range__close-icon {
+      line-height: 28px;
+    }
+  }
+
+  @include m(small) {
+    &.rz-input__inner {
+      height: $--input-small-height;
+    }
+
+    .rz-range-separator {
+      line-height: 24px;
+      font-size: $--input-small-font-size;
+    }
+
+    .rz-range-input {
+      font-size: $--input-small-font-size;
+    }
+
+    .rz-range__icon,
+    .rz-range__close-icon {
+      line-height: 24px;
+    }
+  }
+
+  @include m(mini) {
+    &.rz-input__inner {
+      height: $--input-mini-height;
+    }
+
+    .rz-range-separator {
+      line-height: 20px;
+      font-size: $--input-mini-font-size;
+    }
+
+    .rz-range-input {
+      font-size: $--input-mini-font-size;
+    }
+
+    .rz-range__icon,
+    .rz-range__close-icon {
+      line-height: 20px;
+    }
+  }
+
+  @include when(disabled) {
+    background-color: $--input-fill-disabled;
+    border-color: $--input-fill-disabled;
+    color: $--input-disabled-color;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      background-color: $--input-fill-disabled;
+      border-color: $--input-fill-disabled;
+      color: $--input-disabled-color;
+    }
+
+    input {
+      background-color: transparent;
+      border-color: transparent;
+      color: $--input-disabled-color;
+      cursor: not-allowed;
+      &::placeholder {
+        color: $--input-placeholder-color;
+      }
+    }
+
+    .rz-range-separator {
+      color: $--input-disabled-color;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(notification-plus) {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  @include e(mini) {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 3px 32px 0 #ccc;
+    border: solid 1px #ccc;
+    color: #55a5ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0 !important;
+    cursor: pointer;
+    font-size: 26px;
+  }
+  @include e(card-container) {
+    position: relative;
+    width: 280px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+    // transition: 0.3s;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  @include e(card) {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    // box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+    background-color: #ffffff;
+    border: solid 2px #ffffff;
+    border-radius: 4px;
+    color: #666;
+    padding: 8px;
+    @include e(card-title) {
+      display: flex;
+      justify-content: flex-end;
+    }
+    @include e(card-content) {
+      display: flex;
+      margin-left: 10px;
+      cursor: pointer;
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 500;
+      color: $--color-text-primary;
+      height: 48px;
+      user-select: none;
+      .rz-notification-plus__content-icon { 
+        width: 24px;
+        height: 24px;
+        background: #4080f8;
+        border-radius: 50%;
+        color: #fff;
+        position: relative;
+        font-size: 14px;
+        margin-right: 10px;
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate3d(-50%, -50%, 0);
+        }
+      }
+      .rz-notification-plus__content-text {
+        max-width: 200px;
+        padding-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    @include e(card-footer) {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 12px;
+      padding: 0 10px;
+      color: $--color-text-secondary;
+      .rz-notification-plus__card-footer-item {
+        padding-left: 20px;
+        cursor: pointer;
+        user-select: none;
+        >.rz-notification-plus__item-text {
+          margin-left: 5px;
+        }
+        .rz-notification-plus__footer-icon{
+          width: 16px;
+        }
+      }
+    }
+    @include e(card-panel) {
+      box-sizing: border-box;
+      padding-top: 20px;
+      background-color: #fff;
+      // box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+      &::before{
+        content: ' ';
+        width: 240px;
+        height: 2px;
+        background: $--border-color-lighter;
+        position: absolute;
+        left: 20px;
+        transform: translateY(-10px);
+      }
+      .rz-notification-plus__panel-list {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}

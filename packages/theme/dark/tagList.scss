@@ -1,0 +1,9 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(tagList) {
+  .rz-tag {
+    margin: $--space-mini;
+    cursor: pointer;
+  }
+}

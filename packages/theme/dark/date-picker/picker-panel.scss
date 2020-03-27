@@ -1,0 +1,155 @@
+@import "../common/var";
+@import "../mixins/scrollbar.scss";
+
+@include b(picker-panel) {
+  color: $--color-text-regular;
+  border: 1px solid $--background-color-border;
+  box-shadow: $--box-shadow-light;
+  background: $--background-color-secondary;
+  border-radius: $--border-radius-base;
+  line-height: 30px;
+  margin: 5px 0;
+
+  .popper__arrow {
+    visibility: hidden;
+  }
+
+  @include e((body, body-wrapper)) {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  @include e(content) {
+    position: relative;
+    background: $--background-color-secondary;
+    padding-top: 0;
+    padding-bottom: $--space-small;
+    @include when(left) {
+      padding-left: $--space-small;
+      border-left: 1px solid $--background-color-border;
+      border-right: 1px solid $--background-color-border;
+    }
+
+    @include when(right) {
+      padding-right: $--space-small;
+    }
+  }
+
+  @include e(footer) {
+    border-top: 1px solid $--background-color-border;
+    // padding: 4px;
+    padding: $--space-small $--space-medium;
+    text-align: right;
+    background: $--background-color-secondary;
+    position: relative;
+    font-size: 0;
+    button {
+      &:first-child {
+        margin-right: $--space-mini;
+      }
+    }
+  }
+
+  @include e(shortcut) {
+    color: $--color-white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    line-height: 28px;
+    font-size: 14px;
+    padding-left: 12px;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid $--background-color-border;
+
+    &:first-child {
+      border-top: 1px solid $--background-color-border;
+    }
+
+    &:hover {
+      color: $--datepicker-text-hover-color;
+    }
+
+    &.active {
+      background-color: $--color-primary;
+      color: $--datepicker-active-color;
+    }
+
+    &.is-active {
+      color: $--color-primary;
+    }
+  }
+
+  // @include e(btn) {
+  //   border: 1px solid #dcdcdc;
+  //   color: #333;
+  //   line-height: 24px;
+  //   border-radius: 2px;
+  //   padding: 0 20px;
+  //   cursor: pointer;
+  //   background-color: transparent;
+  //   outline: none;
+  //   font-size: 12px;
+
+  //   &[disabled] {
+  //     color: #cccccc;
+  //     cursor: not-allowed;
+  //   }
+  // }
+
+  @include e(icon-btn) {
+    font-size: 16px;
+    color: $--datepicker-icon-color;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    margin-top: 8px;
+
+    &:hover {
+      color: $--datepicker-text-hover-color;
+    }
+
+    @include when(disabled) {
+      color: $--font-color-disabled-base;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @include e(link-btn) {
+    vertical-align: middle;
+    min-width: 120px;
+  }
+}
+
+.rz-picker-panel *[slot="sidebar"],
+.rz-picker-panel__sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  padding-top: 64px;
+  box-sizing: border-box;
+  background-color: $--background-color-secondary;
+  overflow: auto;
+}
+
+.rz-picker-panel__sidebar-inner {
+  height: calc(100% - 64px);
+}
+
+.rz-picker-panel *[slot="sidebar"] + .rz-picker-panel__body,
+.rz-picker-panel__sidebar + .rz-picker-panel__body {
+  margin-left: 110px;
+}

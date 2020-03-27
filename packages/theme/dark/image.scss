@@ -1,0 +1,52 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(image) {
+  overflow: hidden;
+  display: inline-flex;
+  vertical-align: top;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: $--color-info;
+  & + & {
+    margin-left: 2px;
+  }
+
+  @include e(info) {
+    color: $--color-white;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    // min-width: 60px;
+    // max-width: 100%;
+    // padding: 2px;
+    bottom: 0;
+    right: 0;
+    font-size: $--font-size-large;
+    height: $--space-base;
+    background: linear-gradient(
+      163deg,
+      transparent 0%,
+      transparent 20%,
+      rgba($--color-text-contrast, 0.5) 60%,
+      $--color-text-contrast
+    );
+  }
+
+  @include e(lastletter) {
+    font-size: 14px;
+    padding-top: 4px;
+  }
+
+  @include e(placeholder) {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,17 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(dashedCircle) {
+  position: relative;
+  min-width: 500px;
+  min-height: 500px;
+
+  canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

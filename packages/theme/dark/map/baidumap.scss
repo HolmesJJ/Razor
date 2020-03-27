@@ -1,0 +1,154 @@
+
+$--background-fill-10: #1287ff;
+
+$--font-size-base: 0.14rem !default;
+$--color-white: white;
+$--color-boxShadow: rgba(0, 0, 0, 0.35) !default;
+
+$--map--changeSkin-btn-background-color:rgba(32,88,192,1);
+$--map--night-background-color:#08304a;
+$--map--baidu-border:.01rem solid #999;
+$--map-zoom-btn-color: #999;
+$--map-zoom-btn-background-color: $--color-white;
+$--map-draw-polygon-btn-fill: rgba($--background-fill-10, 0.9);
+
+@include b(map) {
+  .box-select {
+    background: rgba(111, 124, 150, 0.1);
+    border: 2px solid #40c0f5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+  .rz-map__zoom-btns + .rz-map__changeSkin-btn {
+    right: .70rem;
+    bottom: .50rem;
+  }
+
+  @include when(drawing-polygon) {
+    @include e(container) {
+      * {
+        // cursor: url("../src/assets/cursor_drawing.ico"), default !important;
+        color: #4285F4;
+      }
+    }
+  }
+
+  @include e(baidu) {
+    background-color: $--map--night-background-color !important;
+    // border:$--map--baidu-border;
+  }
+
+  @include e(night) {
+    background-color: $--map--night-background-color !important;
+  }
+
+  @include e(changeSkin-btn) {
+    position: absolute;
+    right: .20rem;
+    bottom:.20rem;
+    width: .75rem;
+    height: .75rem;
+    z-index: 1;
+    border-radius: 2px;
+    cursor: pointer;
+    &>img{
+      width: 100%;
+      height: 100%;
+    }
+    &>span{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: .26rem;
+      line-height: .26rem;
+      text-align: center;
+      font-size:$--font-size-base;
+      background:$--map--changeSkin-btn-background-color;
+      color: $--color-white;
+      border-radius: 2px;
+    }
+  }
+
+  @include e(polygon-btn) {
+    position: absolute;
+    top: 0.1rem;
+    left: 0.1rem;
+    width: 0.4rem;
+    min-width: initial;
+    height: 0.4rem;
+    border-radius: 2px;
+    background-color: $--map-draw-polygon-btn-fill;
+    padding: 0;
+  }
+
+  @include e(drawingManager-btns) {
+    position: absolute;
+    left: .1rem;
+    bottom: .1rem;
+  }
+
+  @include e(zoom-btns) {
+    position: absolute;
+    bottom: 0.4rem;
+    top: unset;
+    right: 0.16rem;
+    width: 0.4rem;
+    > div {
+      min-width: auto;
+      width: 0.35rem;
+      height: 0.35rem;
+      line-height: 0.35rem;
+      background-color: $--map-zoom-btn-background-color;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      border: none;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0 !important;
+      margin-bottom: 0.1rem;
+      box-shadow: 0px 3px 0.1rem 0 $--color-boxShadow;
+    }
+  }
+
+  @include e(zoom-btns-zoomIn1) {
+    width: 0.18rem;
+    height: 2px;
+    background-color: $--map-zoom-btn-color;
+    display: block;
+  }
+
+  @include e(zoom-btns-zoomIn2) {
+    width: 2px;
+    height: 0.18rem;
+    background-color: $--map-zoom-btn-color;
+    display: block;
+    position: absolute;
+  }
+
+  @include e(zoom-btns-zoomOut) {
+    width: 0.18rem;
+    height: 2px;
+    background-color: $--map-zoom-btn-color;
+    display: block;
+  }
+
+  @include e(container) {
+    width: 100%;
+    height: 100%;
+    .minemap-canvas-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .minemap-marker {
+    cursor: initial !important;
+  }
+}

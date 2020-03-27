@@ -1,0 +1,14 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(PolygonDrawer) {
+  position: relative;
+  @include e(board) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    cursor: pointer;
+  }
+}

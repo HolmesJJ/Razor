@@ -1,0 +1,29 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(close){
+  border-radius: 50%;
+  background: $--background-color-icon;
+  width: $--space-small;
+  height: $--space-small;
+  color: $--color-text-contrast;
+  text-align: center;
+  line-height: 1;
+  font-size: $--space-mini;
+  position: absolute;
+  right: -$--space-small / 2;
+  top: -$--space-small / 2;
+  cursor: pointer;
+
+  &:before{
+    font-weight: bold;
+    font-size: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    line-height: $--space-small;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+}

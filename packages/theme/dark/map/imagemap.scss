@@ -1,0 +1,26 @@
+
+// 发布会地图
+@include b(conferenceMap) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #083567;
+  @include e(container) {
+    text-align: center;
+    @include m(img) {
+      &>img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+    @include m(trace) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      &>canvas {
+        display: block;
+      }
+    }
+  }
+}

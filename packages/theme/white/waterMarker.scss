@@ -1,0 +1,33 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(waterMark) {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+  @include e(container) {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  @include e(item) {
+    padding: 70px 30px;
+    display: inline-block;
+    // color: rgba(218, 107, 222, 0.4);
+    font-size: 20px;
+    // -webkit-text-stroke: 1px rgba(218, 107, 222, 0.3);
+    // opacity: 0.3;
+		font-weight: 600;
+		
+
+		
+  }
+}

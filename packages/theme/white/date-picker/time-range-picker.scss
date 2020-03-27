@@ -1,0 +1,41 @@
+@import "../common/var";
+
+@include b(time-range-picker) {
+  // width: 454px;
+
+  overflow: visible;
+
+  @include e(content) {
+    display: flex;
+    position: relative;
+    text-align: center;
+    // padding: $--space-mini;
+    padding: $--space-large;
+    padding-top: $--space-base;
+    background: $--background-color-secondary;
+  }
+
+  @include e(cell) {
+    width: 210px;
+    box-sizing: border-box;
+    margin: 0;
+    // padding: 4px 7px 7px;
+    // width: 50%;
+    display: inline-block;
+    & + & {
+      margin-left: $--space-large;
+    }
+  }
+
+  @include e(header) {
+    margin-bottom: $--space-base;
+    text-align: center;
+    font-size: 16px;
+    color: $--color-white;
+  }
+
+  @include e(body) {
+    border-radius: 2px;
+    border: 1px solid $--background-color-border;
+  }
+}

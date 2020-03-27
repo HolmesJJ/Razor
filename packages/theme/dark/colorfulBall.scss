@@ -1,0 +1,193 @@
+@import "mixins/mixins";
+@import "common/var";
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.6;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg) translateZ(1px);
+    transform: rotate(0deg) translateZ(1px);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateZ(1px);
+    transform: rotate(360deg) translateZ(1px);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg) translateZ(1px);
+    transform: rotate(0deg) translateZ(1px);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateZ(1px);
+    transform: rotate(360deg) translateZ(1px);
+  }
+}
+
+
+@-webkit-keyframes colorfulBallrotation {
+  0% {
+    -webkit-transform: rotate(0deg) translateZ(1px);
+    transform: rotate(0deg) translateZ(1px);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateZ(1px);
+    transform: rotate(360deg) translateZ(1px);
+  }
+}
+
+@keyframes colorfulBallrotation {
+  0% {
+    -webkit-transform: rotate(0deg) translateZ(1px);
+    transform: rotate(0deg) translateZ(1px);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg) translateZ(1px);
+    transform: rotate(180deg) translateZ(1px);
+    opacity: 0.2;
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateZ(1px);
+    transform: rotate(360deg) translateZ(1px);
+    opacity: 1;
+  }
+}
+
+
+@include b(colorfulBall) {
+  position: relative;
+  min-width: 400px;
+  min-height: 400px;
+  overflow: hidden;
+
+  &__circle,
+  &__leftEllipse,
+  &__rightEllipse {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1.5s;
+  }
+
+  @include e(circle) {
+    background: url('#{$--img-path}/colorfullBall1.png') no-repeat center;
+    animation: colorfulBallrotation 10s linear 0s infinite forwards;
+  }
+
+  @include e(leftEllipse) {
+    opacity: 0.7;
+    background: url('#{$--img-path}/colorfullBall2.png') no-repeat center;
+    animation: rotation 8s linear 0s infinite forwards;
+  }
+
+  @include e(rightEllipse) {
+    opacity: 0.6;
+    background: url('#{$--img-path}/colorfullBall3.png') no-repeat center;
+    animation: rotation 6s linear 0s infinite forwards;
+  }
+
+  /* enter animation */
+  &.colorfulball-fade-enter-active {
+    animation: 2s;
+
+    .rz-colorfulBall__circle,
+    .rz-colorfulBall__leftEllipse,
+    .rz-colorfulBall__rightEllipse {
+      opacity: 0;
+      animation: fadeIn 1.5s forwards ease-in-out;
+    }
+    .rz-colorfulBall__leftEllipse {
+      transform: rotate(30deg);
+    }
+    .rz-colorfulBall__rightEllipse  {
+      transform: rotate(-30deg);
+    }
+  }
+
+
+  @include when(hover){
+    .rz-colorfulBall__circle {
+      opacity: 0;
+    }
+    .rz-colorfulBall__leftEllipse, .rz-colorfulBall__rightEllipse {
+      opacity: 0;
+    }
+  }
+
+  @include when(after-enter){
+    .rz-colorfulBall__circle,
+    .rz-colorfulBall__leftEllipse,
+    .rz-colorfulBall__rightEllipse {
+      opacity: .6;
+      transform: rotate(0deg);
+    }
+    .rz-colorfulBall__circle {
+      animation: rotation 18s linear;
+      animation-direction: reverse;
+    }
+    .rz-colorfulBall__leftEllipse, .rz-colorfulBall__rightEllipse {
+      animation: rotation 18s infinite linear;
+    }
+    .rz-colorfulBall__leftEllipse {
+      animation-direction: reverse;
+    }
+  }
+
+
+
+
+
+  @include e(content) {
+    font-size: 30px;
+    min-width: 200px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.colorfulball-fade-leave-active {
+    animation: 2s;
+    .rz-colorfulBall__circle, .rz-colorfulBall__leftEllipse, .rz-colorfulBall__rightEllipse{
+      opacity: .6;
+      animation: fadeOut .8s forwards ease-in-out;
+    }
+  }
+
+}

@@ -1,0 +1,4 @@
+build/**/*.js
+.eslintrc.js
+doc/src/assets
+packages/rtspPlayer/libs/previewinfo_config.js

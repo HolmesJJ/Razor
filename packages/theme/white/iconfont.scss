@@ -1,0 +1,34 @@
+@import "common/var";
+
+@font-face {font-family: "rzIconfont";
+  src: url('#{$--font-path}/rziconfont.eot'); /* IE9 */
+  src: url('#{$--font-path}/rziconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('#{$--font-path}/rziconfont.woff') format('woff'),
+  url('#{$--font-path}/rziconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAANkAAsAAAAACDwAAAMWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqDXIM5ATYCJAMUCwwABCAFhG0HRxtEBxEVlO1kXxzwZKi5ACqqwA4vNlINH4+NWKtLt6aJBP9z8FT76dvd+3Q/KRCrTh2hrapRUVGViMrh+Ko6coASSOj8/Nx6Q8TjMpapNGiuoczaXwJPZmeeLwUspHMJAJRjO2pxzgMbFaFGcvbk0RdS3rLC6Y97lbPOAzaffYvLHMMTmhZaCyigY6y2VLKWikvUuhwOr8Iz96zzEMDTZIDMXHwBiHHQaQJIzpazEOeUuBa8EEvCmrUOOYZPrDt6DXAUfr78wmAiUAKDXrRQ8hZg4ubiVmeogBJcBJpOD8ibwIAB4EDytcYcWBwcYHjz+xwTAJ4YRT8ubq5uPj91hYLFPZDYs394ICiGAwmh6RkAJojAXRzLRSDwcYVA4eMTgcGnjv1hLgkA8EAKHADcEWnHlLGKYpmE+jKlMpss+uHF9+vQZhNerYLLZen4nD1rnKDTIMrq8rV4INRvHCB9sNc0hgfsUaNBGCsJdM2ooT3QRYcavVvVhDWoslCvTn+MGcxwoAtPzm8uEgt79rjl7jH549bjpkH3sPOsh1S4gLgcBvxR8s/Nql6lDEojNR1XDdTjHWVUGoB+hlgs6DZeNRg1HlOGNz09Gu3slGiYhcuqDHvF9VyW1lrldrnVLJU1d8oonMRLeBmWgDZoyxYqBfdb/BuTTys93yKpA+Dp/8qPkxwG/DARYNafZQHznMWhqsAZ2S7TMAX0ZJSo2eGB/2kt8z6NuBKcDkJMZQpKRCMYMR0ohxuAgJQhCIkZB0+/+c0p5fJgiEuAPhsIhBInoBRxCUaJG5TDvUFAlX8IKYkLnkVMu2dKVwB7OCZkBSXwP1hBo+Kacogyb6jfgaUsJyS8MGXrgbZqipErjpimWJA/uitFgUo0wAVdhiEQTIkcilKZUqa+rlXdO1WChtkBphOyghL4H6ygUfm1y6H08TfU78BSS06T+oUp2+GhrRoA6iocQTm38pb80V0pClSiAS5Ij4EFCab6UQ5FqcwA/9TXpJiCCqvlxcM7HgA80McDbNqu1+coZss2v4XAnNeYEqWVvQvFbAYAAA==') format('woff2'),
+  url('#{$--font-path}/rziconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.rz-iconfont {
+  font-family: "rzIconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.rz-iconfont-warning:before {
+  content: "\e6ac";
+}
+
+.rz-iconfont-success:before {
+  content: "\e6ae";
+}
+
+.rz-iconfont-error:before {
+  content: "\e6f3";
+}
+
+.rz-iconfont-info:before {
+  content: "\e714";
+}

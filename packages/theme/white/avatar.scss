@@ -1,0 +1,81 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(avatar) {
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  // overflow: hidden;
+  // color: $--avatar-font-color;
+  background: transparent;
+  width: $--space-64;
+  height: $--space-64;
+  line-height: $--space-64;
+  border: 1px solid $--border-color-base;
+  position: relative;
+  // font-size: $--avatar-text-font-size;
+
+  >img {
+    display: block;
+    height: 100%;
+  }
+
+  .rz-checkbox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    line-height: 1;
+    .rz-checkbox__inner{
+      border-radius: 50%;
+    }
+    .rz-checkbox__input:not(.is-disabled):hover{
+      box-shadow:none;
+    }
+  }
+
+  @include m(circle) {
+    border-radius: 50%;
+  }
+
+  @include m(square) {
+    border-radius: $--border-radius-base;
+    .rz-checkbox {
+      .rz-checkbox__inner{
+        border-radius: $--border-radius-small;
+      }
+      .rz-checkbox__input:not(.is-disabled):hover{
+        box-shadow:none;
+      }
+    }
+  }
+
+  @include m(icon) {
+    font-size: $--font-size-extra-large;
+  }
+
+  @include m(large) {
+    // width: $--space-large;
+    // height: $--space-large;
+    // line-height: $--avatar-large-size;
+  }
+
+  @include m(medium) {
+    width: $--space-vast;
+    height: $--space-vast;
+    line-height: $--space-vast;
+  }
+
+  @include m(small) {
+    width: $--space-large;
+    height: $--space-large;
+    line-height: $--space-large;
+    .rz-checkbox {
+      right: - $--checkbox-input-height / 2;
+      top: - $--checkbox-input-height / 2;
+    }
+  }
+  @include when(fit) {
+    overflow: hidden;
+  }
+}

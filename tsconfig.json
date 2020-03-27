@@ -1,0 +1,106 @@
+{
+  "include": ["src", "packages", "doc/src"],
+  "exclude": ["node_modules", "**/__tests__/*.ts"],
+  "compilerOptions": {
+    // Module resolution
+    "baseUrl": ".",
+    "lib": ["dom", "esnext"],
+    "maxNodeModuleJsDepth": 0,
+    "moduleResolution": "node",
+    "noResolve": false,
+    "noLib": false,
+    "paths": {
+      "rz/*": ["./src/*"],
+      "pkg/*": ["./packages/*"],
+      "doc/*": ["./doc/src/*"]
+    },
+    "preserveSymlinks": false,
+    "resolveJsonModule": true,
+    // "types": [],
+    "typeRoots": ["node_modules/@types", "./packages/src/types"],
+
+    // Compiler
+    "allowJs": false,
+    "checkJs": false,
+    "composite": false,
+    "disableSizeLimit": false,
+    // "incremental": true,
+    // "outDir": "dist",
+    // "outFile": "dist/main.js",
+    // "rootDir": ".",
+    // "rootDirs": [],
+    "plugins": [],
+    "watch": true,
+
+    // JSX
+    "jsx": "preserve",
+    "jsxFactory": "h",
+
+    // Lint
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": false,
+    "keyofStringsOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noImplicitReturns": false,
+    "noStrictGenericChecks": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": false,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "suppressExcessPropertyErrors": false,
+    "suppressImplicitAnyIndexErrors": false,
+
+    // Codegen
+    "declaration": false,
+    // "declarationDir": "dist/types",
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "emitDecoratorMetadata": false,
+    "inlineSourceMap": false,
+    "inlineSources": true,
+    "isolatedModules": false,
+    "module": "esnext",
+    "noEmit": false,
+    "noEmitOnError": false,
+    "noImplicitUseStrict": false,
+    "preserveConstEnums": false,
+    "pretty": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "stripInternal": false,
+    "target": "es5",
+
+    // CLI output
+    "diagnostics": false,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "noErrorTruncation": false,
+    "preserveWatchOutput": false,
+    "traceResolution": false,
+
+    // Helper
+    "downlevelIteration": false,
+    "esModuleInterop": false,
+    "importHelpers": false,
+    "noEmitHelpers": false,
+
+    // Encoding
+    "charset": "UTF-8",
+    "emitBOM": false,
+    "newLine": "LF"
+
+    // Debugger
+    // "mapRoot": "",
+    // "sourceRoot" "",
+  }
+}

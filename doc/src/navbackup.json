@@ -1,0 +1,20 @@
+{
+  "list": [
+    {
+      "path": "/carousel",
+      "title": "Carousel 轮播图"
+    },
+    {
+      "path": "/collapse",
+      "title": "Collapse 折叠面板"
+    },
+    {
+      "path": "/alert",
+      "title": "Alert 警告"
+    },
+    {
+      "path": "/inputNumber",
+      "title": "InputNumber 计数器"
+    },
+  ]
+}

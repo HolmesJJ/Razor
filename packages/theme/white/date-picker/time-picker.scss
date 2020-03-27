@@ -1,0 +1,117 @@
+@import "../common/var";
+
+@include b(time-panel) {
+  margin: $--space-undersized 0;
+  border: solid 1px $--background-color-border;
+  background: $--background-color-secondary;
+  box-shadow: $--timepicker-box-shadow;
+  border-radius: $--border-radius-base;
+  position: absolute;
+  width: 214px;
+  left: 0;
+  z-index: $--index-top;
+  user-select: none;
+  box-sizing: content-box;
+
+  .popper__arrow {
+    visibility: hidden;
+  }
+
+  @include e(content) {
+    font-size: 0;
+    position: relative;
+    overflow: hidden;
+    // padding: 0 30px;
+    border-radius: $--border-radius-base;
+
+    &::after,
+    &::before {
+      content: "";
+      top: 50%;
+      transform: translateY(-10px);
+      position: absolute;
+      margin-top: -15px;
+      height: 39px;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      box-sizing: border-box;
+      padding-top: 6px;
+      text-align: left;
+      border-top: 1px solid $--background-color-border;
+      border-bottom: 1px solid $--background-color-border;
+    }
+
+    &::after {
+      left: 50%;
+      // margin-left: 12%;
+      // margin-right: 12%;
+    }
+
+    &::before {
+      padding-left: 50%;
+      // margin-right: 12%;
+      // margin-left: 12%;
+    }
+
+    &.has-seconds {
+      &::after {
+        left: calc(100% / 3 * 2);
+      }
+
+      &::before {
+        padding-left: calc(100% / 3);
+      }
+    }
+
+    &.has-arrow {
+      &::after,
+      &::before {
+        margin-top: -8px;
+      }
+    }
+  }
+
+  @include e(footer) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $--space-small 0;
+    border-top: 1px solid $--background-color-border;
+    // padding: 15px 30px 15px 0;
+    // height: 63px;
+    line-height: 25px;
+    text-align: right;
+    box-sizing: border-box;
+    background: $--background-color-secondary;
+    &.is-range {
+      justify-content: flex-end;
+    }
+    .rz-button--text {
+      padding-top: 0;
+      padding-bottom: 0;
+      &:last-child {
+        margin-left: $--space-48;
+      }
+    }
+  }
+
+  @include e(btn) {
+    border: none;
+    line-height: 28px;
+    padding: 0 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    font-size: 12px;
+    color: $--color-text-primary;
+    &:last-child {
+      margin-right: $--space-base;
+    }
+
+    &.confirm {
+      font-weight: 800;
+    }
+  }
+}

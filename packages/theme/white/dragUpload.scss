@@ -1,0 +1,32 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(dragUpload) {
+  .rz-dialog {
+    background: none;
+    box-shadow: none;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    .rz-dialog__body {
+      padding: 0;
+    }
+  }
+
+  .rz-dialog__wrapper {
+    overflow: hidden;
+  }
+
+  .rz-upload-dragger {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    background: none;
+
+    &.is-dragover {
+      background: none;
+      border: none;
+    }
+  }
+}

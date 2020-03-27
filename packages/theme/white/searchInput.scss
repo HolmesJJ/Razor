@@ -1,0 +1,47 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(search-input) {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: $--search-input-background-color;
+  height: $--search-input-height;
+  border-radius: $--search-input-border-radius;
+  .main-input-area {
+    flex: 1;
+    height: 100%;
+    &.no-selector {
+      padding-left: $--space-mini;
+    }
+  }
+  .selector-area {
+    padding-left: $--space-mini + 2;
+    padding-right: $--space-mini;
+    margin-right: $--space-mini;
+    border-right: 1px solid $--border-color-base;
+    .rz-dropdown-link {
+      line-height: $--space-base;
+    }
+  }
+  .rz-input {
+    height: 100%;
+    .rz-input__inner {
+      height: 100%;
+      border: none;
+      transition: none;
+      padding-left: 2px;
+      padding-right: $--space-mini;
+      &:focus {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+  .rz-search-input-suffix {
+    line-height: $--search-input-height;
+    padding-right: $--space-small;
+    color: $--search-input-color;
+    cursor: pointer;
+  }
+}

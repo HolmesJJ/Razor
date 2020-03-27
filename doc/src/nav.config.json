@@ -1,0 +1,319 @@
+[
+  {
+    "name": "Razor 手册",
+    "navPath": "doc",
+    "groups": [
+      {
+        "groupName": "指南",
+        "list": [
+          {
+            "path": "/developer",
+            "title": "开发指南"
+          },
+          {
+            "path": "/user",
+            "title": "安装指南"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "组件",
+    "navPath": "pkg",
+    "groups": [
+      {
+        "groupName": "GIS 地图",
+        "list": [
+          {
+            "path": "/sMap",
+            "title": "SMap 地图"
+          },
+          {
+            "path": "/mapLinePlayer",
+            "title": "MapLinePlayer 地图轨迹播放"
+          },
+          {
+            "path": "/mapMarker",
+            "title": "MapMarker 地图标注"
+          },
+          {
+            "path": "/mapPolyline",
+            "title": "MapPolyline 地图折线"
+          },
+          {
+            "path": "/mapPolygon",
+            "title": "MapPolygon 地图多边形"
+          },
+          {
+            "path": "/mapCircle",
+            "title": "MapCircle 地图圆形"
+          },
+          {
+            "path": "/mapDrawingTools",
+            "title": "MapDrawingTools 地图绘制工具"
+          },
+          {
+            "path": "/mapTool",
+            "title": "MapTool 地图小工具"
+          },
+          {
+            "path": "/mapCluster",
+            "title": "MapCluster 地图点聚合"
+          },
+          {
+            "path": "/mapHeatmap",
+            "title": "MapHeatmap 地图热力图"
+          }
+        ]
+      },
+      {
+        "groupName": "Video/Image 视图",
+        "list": [
+          {
+            "path": "/framePlayer",
+            "title": "FramePlayer 播放器"
+          },
+          {
+            "path": "/rtspPlayer",
+            "title": "RtspPlayer Rtsp播放器"
+          },
+          {
+            "path": "/polygonDrawer",
+            "title": "PolygonDrawer 多边形绘画"
+          },
+          {
+            "path": "/imageEditor",
+            "title": "ImageEditor 图片编辑器"
+          },
+          {
+            "path": "/image",
+            "title": "Image 图片"
+          },
+          {
+            "path": "/sImage",
+            "title": "Image优化重构"
+          },
+          {
+            "path": "/imageCard",
+            "title": "ImageCard 图片卡片"
+          }
+        ]
+      },
+      {
+        "groupName": "业务组件",
+        "list": [
+          {
+            "path": "/massTree",
+            "title": "MassTree 超级树"
+          },
+          {
+            "path": "/massTreeMap",
+            "title": "MassTreeMap 超级视频源选择器"
+          },
+          {
+            "path": "/annulus",
+            "title": "annulus 圆环"
+          },
+          {
+            "path": "/colorfulBall",
+            "title": "colorfulBall 彩球"
+          },
+          {
+            "path": "/bigDataTree",
+            "title": "BigDataTree 大数据树组件"
+          },
+          {
+            "path": "/scroller",
+            "title": "Scroller 无缝滚动"
+          },
+          {
+            "path": "/waterMarker",
+            "title": "WaterMarker 防拍水印"
+          },
+          {
+            "path": "/scrollBox",
+            "title": "scrollBox 滑动窗口"
+          }
+        ]
+      },
+      {
+        "groupName": "基础组件",
+        "list": [
+          {
+            "path": "/searchInput",
+            "title": "SearchInput 搜索输入"
+          },
+          {
+            "path": "/card",
+            "title": "card 卡片"
+          },
+          {
+            "path": "/digit",
+            "title": "digit 数字"
+          },
+          {
+            "path": "/avatar",
+            "title": "avatar 头像"
+          },
+          {
+            "path": "/popover",
+            "title": "Popover 弹出框"
+          },
+          {
+            "path": "/tooltip",
+            "title": "Tooltip 文字提示"
+          },
+          {
+            "path": "/message",
+            "title": "Message 消息提示"
+          },
+          {
+            "path": "/messageBox",
+            "title": "MessageBox 消息弹框"
+          },
+          {
+            "path": "/dialog",
+            "title": "Dialog 对话框"
+          },
+          {
+            "path": "/slider",
+            "title": "Slider 滑块"
+          },
+          {
+            "path": "/steps",
+            "title": "Steps 步骤条"
+          },
+          {
+            "path": "/button",
+            "title": "Button 按钮"
+          },
+          {
+            "path": "/radio",
+            "title": "Radio 单选框"
+          },
+          {
+            "path": "/table",
+            "title": "Table 表格"
+          },
+          {
+            "path": "/form",
+            "title": "Form 表单"
+          },
+          {
+            "path": "/pagination",
+            "title": "Pagination 分页"
+          },
+          {
+            "path": "/input",
+            "title": "Input 输入框"
+          },
+          {
+            "path": "/checkbox",
+            "title": "Checkbox 多选框"
+          },
+          {
+            "path": "/dropdown",
+            "title": "Dropdown 下拉菜单"
+          },
+          {
+            "path": "/select",
+            "title": "Select 选择器"
+          },
+          {
+            "path": "/tabs",
+            "title": "Tabs 标签页"
+          },
+          {
+            "path": "/breadcrumb",
+            "title": "Breadcrumb 面包屑"
+          },
+          {
+            "path": "/onOff",
+            "title": "onOff 开关"
+          },
+          {
+            "path": "/tag",
+            "title": "Tag  标签"
+          },
+          {
+            "path": "/backtop",
+            "title": "Backtop 回到顶部"
+          },
+          {
+            "path": "/placeholder",
+            "title": "placeholder 占位"
+          },
+          {
+            "path": "/colorPicker",
+            "title": "colorPicker 颜色选择器"
+          },
+          {
+            "path": "/timeline",
+            "title": "timeline 时间线"
+          },
+          {
+            "path": "/timePicker",
+            "title": "TimePicker 时间选择器"
+          },
+          {
+            "path": "/datePicker",
+            "title": "DatePicker 日期选择器"
+          },
+          {
+            "path": "/datePicker/datetimePicker",
+            "title": "DateTimePicker 日期时间选择器"
+          },
+          {
+            "path": "/badge",
+            "title": "Badge 标记"
+          },
+          {
+            "path": "/close",
+            "title": "Close 关闭按钮"
+          },
+          {
+            "path": "/icon",
+            "title": "icon 图标"
+          },
+          {
+            "path": "/tree",
+            "title": "Tree 树组件"
+          },
+          {
+            "path": "/upload",
+            "title": "Upload 上传"
+          },
+          {
+            "path": "/dragUpload",
+            "title": "dragUpload 拖拽上传"
+          },
+          {
+            "path": "/progress",
+            "title": "Progress 进度条"
+          },
+          {
+            "path": "/spinner",
+            "title": "Spinner 旋转"
+          },
+          {
+            "path": "/cascader",
+            "title": "Cascader 级联选择器"
+          },
+          {
+            "path": "/loading",
+            "title": "Loading 加载"
+          },
+          {
+            "path": "/notification",
+            "title": "Notification 通知"
+          },
+          {
+            "path": "/notificationPlus",
+            "title": "NotificationPlus 高级通知"
+          }
+        ]
+      }
+    ]
+  }
+]

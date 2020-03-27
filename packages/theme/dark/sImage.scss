@@ -1,0 +1,34 @@
+@import "mixins/mixins";
+@import "common/var";
+
+.rz-s-image {
+  overflow: hidden;
+  width: auto;
+  height: auto;
+}
+
+.rz-s-image__placeholder {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rz-s-image__container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rz-s-image__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.rz-s-image__inner {
+  position: absolute;
+}

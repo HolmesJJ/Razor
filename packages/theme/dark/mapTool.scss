@@ -1,0 +1,53 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(map-tool) {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: $--space-medium;
+
+  & > div {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgba($--color-text-contrast, 0.5);
+    border: 1px solid $--color-primary-hover;
+    &:hover {
+      background-color: $--color-text-contrast;
+    }
+
+    &:first-child {
+      border: none;
+      margin-bottom: $--space-small;
+      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &:nth-child(2) {
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+
+    &:last-child {
+      border-top: none;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+  }
+
+  i {
+    color: $--color-primary-hover;
+    font-size: 18px;
+  }
+
+  @include when(bottom-right) {
+    bottom: 0;
+    right: 0;
+  }
+}

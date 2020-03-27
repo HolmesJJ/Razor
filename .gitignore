@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+*-error.log
+package-lock.json
+yarn.lock
+packages/theme/lib
+/components/
+/theme/
+
+.idea
+.vscode

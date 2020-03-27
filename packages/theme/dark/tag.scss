@@ -1,0 +1,260 @@
+@import "mixins/mixins";
+@import "common/var";
+@import "mixins/utils";
+
+@include b(tag) {
+  background-color: $--background-color-border;
+  display: inline-block;
+  padding: 0 $--space-mini;
+  height: $--space-base - 2px;
+  line-height: $--space-base - 4px;
+  font-size: $--tag-font-size;
+  color: $--tag-font-color;
+  border-radius: $--tag-border-radius;
+  box-sizing: border-box;
+  border: 1px solid $--tag-border;
+  white-space: nowrap;
+  text-align: center;
+
+  .rz-icon-close {
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 12px;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+    top: -1px;
+    right: -5px;
+    color: $--tag-font-color;
+
+    &::before {
+      display: block;
+    }
+
+    &:hover {
+      // background-color: $--tag-background-color;
+      color: $--color-white;
+    }
+  }
+
+  @include when(top){
+    border-top-right-radius: 0;
+    border-right: none;
+  }
+
+  @include when(activated){
+    color: $--color-primary-hover;
+    border-color: $--background-color-border;
+    background: $--background-color-border;
+  }
+
+  @include m(info) {
+    background-color: $--background-color-secondary;
+    border-color: $--background-color-secondary;
+    color: $--color-text-regular;
+
+    @include when(hit) {
+      border-color: $--tag-info-color;
+    }
+
+    .rz-tag__close {
+      color: $--color-text-regular;
+    }
+
+    .rz-tag__close:hover {
+      // background-color: $--tag-info-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(success) {
+    background-color: $--tag-success-fill;
+    border-color: $--tag-success-border;
+    color: $--tag-success-color;
+
+    @include when(hit) {
+      border-color: $--tag-success-color;
+    }
+
+    .rz-tag__close {
+      color: $--tag-success-color;
+    }
+
+    .rz-tag__close:hover {
+      // background-color: $--tag-success-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(warning) {
+    background-color: $--tag-warning-fill;
+    border-color: $--tag-warning-border;
+    color: $--tag-warning-color;
+
+    @include when(hit) {
+      border-color: $--tag-warning-color;
+    }
+
+    .rz-tag__close {
+      color: $--tag-warning-color;
+    }
+
+    .rz-tag__close:hover {
+      // background-color: $--tag-warning-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(plain) {
+    background-color: rgba($--background-color-light, 0.4);
+    // border-color: $--tag-warning-border;
+    color: $--color-text-regular;
+
+    @include when(hit) {
+      border-color: $--tag-warning-color;
+    }
+
+    .rz-tag__close {
+      color: $--tag-warning-color;
+    }
+
+    .rz-tag__close:hover {
+      // background-color: $--tag-warning-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(danger) {
+    background-color: $--tag-danger-fill;
+    border-color: $--tag-danger-border;
+    color: $--tag-danger-color;
+
+    @include when(hit) {
+      border-color: $--tag-danger-color;
+    }
+
+    .rz-tag__close {
+      color: $--tag-danger-color;
+    }
+
+    .rz-tag__close:hover {
+      // background-color: $--tag-danger-color;
+      color: $--color-white;
+    }
+  }
+
+  @include m(lighter) {
+    background-color: $--color-primary;
+    border-color: $--color-primary;
+    color: $--color-white;
+
+    @include when(hit) {
+      border-color: $--color-primary;
+    }
+
+    .rz-tag__close {
+      color: $--color-white;
+    }
+
+    .rz-tag__close:hover {
+      color: $--color-white;
+    }
+  }
+
+
+  @include m(colorful) {
+    background: $--background-color-linear-gradient;
+    border: 1px solid transparent;
+    border-left-color: $--background-color-linear-start;
+    border-right-color: $--background-color-linear-end;
+    color: $--color-white;
+
+    // @include when(hit) {
+    // border-color: $--tag-danger-color;
+    // }
+
+    .rz-tag__close {
+      color: $--color-white;
+    }
+
+    .rz-tag__close:hover {
+      // background: $--background-color-linear-gradient;
+      color: $--color-white;
+    }
+  }
+
+  @include m(huge) {
+    height: $--space-medium;
+    line-height: $--space-medium - 2px;
+    border-color: $--border-color-base;
+    background: transparent;
+    @include utils-ellipsis;
+    // overflow: hidden;
+    // /*文本不会换行*/
+    // white-space: nowrap;
+    letter-spacing: 1px;
+    // /*当文本溢出包含元素时，以省略号表示超出的文本*/
+    // text-overflow: ellipsis;
+  }
+
+  @include m(large) {
+    height: $--space-base;
+    line-height: $--space-base - 2px;
+    width: 130px;
+    border-color: $--background-color-border;
+    background: rgba($--background-color-border, 0.5);
+    @include utils-ellipsis;
+    // overflow: hidden;
+    // /*文本不会换行*/
+    // white-space: nowrap;
+    letter-spacing: 1px;
+    // /*当文本溢出包含元素时，以省略号表示超出的文本*/
+    // text-overflow: ellipsis;
+
+
+    .rz-icon-close {
+      transform: scale(.8);
+    }
+  }
+
+  @include m(medium) {
+    height: $--space-base - 4px;
+    line-height: $--space-base - 6px;
+
+    .rz-icon-close {
+      transform: scale(.8);
+    }
+  }
+
+  @include m(small) {
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    padding: 0 $--space-undersized;
+    line-height: 18px;
+    font-size: $--font-size-extra-small;
+
+    .rz-icon-close {
+      transform: scale(.6);
+    }
+  }
+
+  @include m(mini) {
+    height: 14px;
+    padding: 0 px;
+    line-height: 12px;
+    font-size: 10px;
+
+    .rz-icon-close {
+      margin-left: -3px;
+      transform: scale(.5);
+    }
+  }
+
+  @include e(popover-content){
+    padding: $--space-undersized;
+  }
+}

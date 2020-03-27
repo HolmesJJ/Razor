@@ -1,0 +1,112 @@
+@import "../common/var";
+@import "../mixins/mixins";
+@import "./picker-panel.scss";
+
+@include b(date-picker) {
+  // width: 322px;
+
+  &.has-sidebar.has-time {
+    width: 434px;
+  }
+
+  &.has-sidebar {
+    width: 438px;
+  }
+
+  &.has-time .rz-picker-panel__body-wrapper {
+    position: relative;
+  }
+
+  .rz-picker-panel__content {
+    // width: 292px;
+    // width: 360px;
+    // margin: $--space-small;
+    // margin-top: $--space-mini;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  table {
+    table-layout: fixed;
+    // width: 100%;
+    width: 314px;
+  }
+
+  @include e(editor-wrap) {
+    position: relative;
+    display: table-cell;
+    padding: 0 5px;
+  }
+
+  @include e(time-header) {
+    position: relative;
+    // border-bottom: 1px solid $--background-color-border;
+    font-size: 12px;
+    padding: 8px 5px 5px 5px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    .rz-input {
+      .rz-input__inner {
+        background-color: transparent;
+        border: 1px solid $--background-color-border;
+        border-radius: 0;
+      }
+    }
+  }
+
+  @include e(header) {
+    margin: $--space-small $--space-medium - 4;
+    text-align: center;
+
+    @include m(bordered) {
+      margin-bottom: 0;
+      padding-bottom: 12px;
+      // border-bottom: solid 1px $--border-color-lighter;
+
+      & + .rz-picker-panel__content {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include e(header-label) {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 5px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    color: $--color-white;
+
+    &:hover {
+      color: $--datepicker-text-hover-color;
+    }
+
+    &.active {
+      color: $--datepicker-active-color;
+    }
+  }
+
+  @include e(prev-btn) {
+    float: left;
+  }
+
+  @include e(next-btn) {
+    float: right;
+  }
+
+  @include e(time-wrap) {
+    padding: 10px;
+    text-align: center;
+  }
+
+  @include e(time-label) {
+    float: left;
+    cursor: pointer;
+    line-height: 30px;
+    margin-left: 10px;
+  }
+}

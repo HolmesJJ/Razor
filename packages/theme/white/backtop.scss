@@ -1,0 +1,32 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(backtop) {
+  position: fixed;
+  background-color: $--color-primary;
+  width: $--space-64;
+  height: $--space-64;
+  border-radius: $--border-radius-circle;
+  color: $--color-white;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  font-size: $--font-size-extra-small;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  z-index: 5;
+
+  .rz-icon-caret-top {
+    font-size: $--font-size-large;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: $--font-size-medium 0 0 0;
+  }
+
+  @include e(word) {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}

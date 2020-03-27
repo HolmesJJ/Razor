@@ -1,0 +1,357 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(textarea) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  font-size: $--font-size-base;
+
+  @include e(inner) {
+    display: block;
+    resize: vertical;
+    padding: $--input-inner-padding;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: inherit;
+    color: $--input-color;
+    background-color: $--input-background-color;
+    background-image: none;
+    border: $--input-border;
+    border-radius: $--input-border-radius;
+    transition: $--border-transition-base;
+
+    &::placeholder {
+      color: $--input-placeholder-color;
+    }
+
+    &:hover {
+      border-color: $--input-hover-border;
+    }
+
+    &:focus {
+      outline: none;
+      color: $--color-white;
+      border-color: $--input-focus-border;
+    }
+  }
+
+  & .rz-input__count {
+    position: absolute;
+    color: $--color-text-contrast;
+    font-size: $--font-size-extra-small;
+    bottom: $--space-mini;
+    right: $--space-mini;
+    background: rgba($--background-color-form, 0.5);
+  }
+
+  @include when(disabled) {
+    .rz-textarea__inner {
+      background-color: $--input-disabled-fill;
+      border-color: $--input-disabled-border;
+      color: rgba($--input-disabled-color, 0.3);
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $--input-placeholder-color;
+      }
+    }
+  }
+}
+
+@include b(input) {
+  display: inline-block;
+  position: relative;
+  font-size: $--font-size-base;
+  display: inline-block;
+  width: 100%;
+
+  & + & {
+    margin-top: 30px;
+  }
+
+  @include scroll-bar;
+
+  & .rz-input__clear {
+    color: $--input-color;
+    font-size: $--input-font-size;
+    line-height: 16px;
+    cursor: pointer;
+    transition: $--color-transition-base;
+
+    &:hover {
+      color: $--input-clear-hover-color;
+    }
+  }
+
+  & .rz-input__count {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    color: $--color-text-contrast;
+    font-size: $--font-size-extra-small;
+
+    .rz-input__count-inner {
+      background: rgba($--background-color-form, 0.5);
+      line-height: initial;
+      display: inline-block;
+    }
+  }
+
+  @include e(inner) {
+    -webkit-appearance: none;
+    background-color: $--input-background-color;
+    background-image: none;
+    border-radius: $--input-border-radius;
+    border: $--input-border;
+    box-sizing: border-box;
+    color: $--input-color;
+    display: inline-block;
+    font-size: inherit;
+    height: $--input-height;
+    line-height: $--input-height;
+    outline: none;
+    padding: $--input-inner-padding;
+    transition: $--border-transition-base;
+    width: 100%;
+
+    &::placeholder {
+      color: $--input-placeholder-color;
+    }
+
+    &:hover {
+      border-color: $--input-hover-border;
+    }
+
+    &:focus {
+      outline: none;
+      color: $--color-white;
+      border-color: $--input-focus-border;
+      box-shadow: $--input-focus-box-shadow;
+    }
+  }
+
+  @include e(suffix) {
+    position: absolute;
+    height: 100%;
+    right: 5px;
+    top: 0;
+    text-align: center;
+    color: $--input-icon-color;
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+
+  @include e(suffix-inner) {
+    pointer-events: all;
+  }
+
+  @include e(prefix) {
+    position: absolute;
+    height: 100%;
+    left: 5px;
+    top: 0;
+    text-align: center;
+    color: $--input-icon-color;
+    transition: all 0.3s;
+  }
+
+  @include e(icon) {
+    color: $--color-text-placeholder;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25px;
+    text-align: center;
+    transition: all 0.3s;
+    line-height: $--input-height;
+
+    &:after {
+      content: "";
+      width: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  @include e(validateIcon) {
+    pointer-events: none;
+  }
+
+  @include when(active) {
+    .rz-input__inner {
+      outline: none;
+      border-color: $--input-focus-border;
+    }
+  }
+
+  @include when(disabled) {
+    .rz-input__inner {
+      background-color: $--input-fill-disabled;
+      border-color: $--input-fill-disabled;
+      color: rgba($--input-disabled-color, 0.3);
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $--input-placeholder-color;
+      }
+    }
+
+    .rz-input__icon {
+      cursor: not-allowed;
+    }
+  }
+
+  @include m(suffix) {
+    .rz-input__inner {
+      padding-right: 30px;
+    }
+  }
+
+  @include m(prefix) {
+    .rz-input__inner {
+      padding-left: 30px;
+    }
+  }
+
+  @include m(medium) {
+    font-size: $--input-medium-font-size;
+
+    @include e(inner) {
+      height: $--input-medium-height;
+      line-height: $--input-medium-height;
+    }
+
+    .rz-input__icon {
+      line-height: $--input-medium-height;
+    }
+  }
+
+  @include m(small) {
+    font-size: $--input-small-font-size;
+
+    @include e(inner) {
+      height: $--input-small-height;
+      line-height: $--input-small-height;
+    }
+
+    .rz-input__icon {
+      line-height: $--input-small-height;
+    }
+  }
+
+  @include m(mini) {
+    font-size: $--input-mini-font-size;
+
+    @include e(inner) {
+      height: $--input-mini-height;
+      line-height: $--input-mini-height;
+    }
+
+    .rz-input__icon {
+      line-height: $--input-mini-height;
+    }
+  }
+}
+
+@include b(input-group) {
+  line-height: normal;
+  display: inline-table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  > .rz-input__inner {
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  @include e((append, prepend)) {
+    // background-color: $--background-color-base;
+    background-color: transparent;
+    color: $--color-info;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+    border: $--border-base;
+    border-radius: $--input-border-radius;
+    padding: $--input-inner-padding;
+    width: 1px;
+    white-space: nowrap;
+
+    &:focus {
+      outline: none;
+    }
+
+    .rz-select,
+    .rz-button {
+      display: inline-block;
+      margin: -10px -20px;
+    }
+
+    button.rz-button,
+    div.rz-select .rz-input__inner,
+    div.rz-select:hover .rz-input__inner {
+      border-color: transparent;
+      background-color: transparent;
+      color: inherit;
+      // border-top: 0;
+      border: 0;
+      // border-bottom: 0;
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: none;
+      }
+    }
+
+    .rz-button,
+    .rz-input {
+      font-size: inherit;
+    }
+  }
+
+  @include e(prepend) {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  @include e(append) {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  @include m(prepend) {
+    .rz-input__inner {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .rz-select .rz-input.is-focus .rz-input__inner {
+      border-color: transparent;
+    }
+  }
+
+  @include m(append) {
+    .rz-input__inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .rz-select .rz-input.is-focus .rz-input__inner {
+      border-color: transparent;
+    }
+  }
+}
+
+/** disalbe default clear on IE */
+.rz-input__inner::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}

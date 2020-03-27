@@ -1,0 +1,124 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(search-input) {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: $--search-input-background-color;
+  height: $--search-input-height;
+  border-radius: $--space-undersized;
+  border: 1px solid transparent;
+
+  @include when(disabled) {
+    background-color: rgba($--search-input-background-color, 0.3);
+    border-color: rgba($--search-input-background-color, 0.3);
+    i.rz-search-input-suffix {
+      color: rgba($--color-text-regular, 0.3);
+    }
+    .rz-input__inner {
+      padding-left: 0;
+    }
+
+    .selector-area {
+      border-right: 1px solid rgba($--border-color-base, .3);
+    }
+  }
+
+  @include when(focus) {
+    border-color: $--input-focus-border;
+  }
+
+  &.is-focus-active {
+    background-color: transparent;
+    border: 1px solid transparent;
+    .rz-input__inner {
+      background-color: transparent;
+    }
+    &.is-focus {
+      background-color: $--search-input-background-color;
+      border-color: $--input-focus-border;
+      .rz-input__inner {
+        background-color: $--search-input-background-color;
+      }
+    }
+  }
+
+  .main-input-area {
+    flex: 1;
+    height: 100%;
+
+    &.no-selector {
+      padding-left: $--space-mini + 3px;
+    }
+  }
+
+  .selector-area {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: $--space-mini + 2;
+    padding-right: $--space-mini;
+    margin-right: $--space-mini;
+    border-right: 1px solid $--border-color-base;
+
+    .rz-dropdown-link {
+      line-height: $--space-base;
+      @include when(disabled) {
+        cursor: not-allowed;
+        color: rgba($--color-text-regular, 0.3);
+      }
+    }
+  }
+
+  .rz-input {
+    height: 100%;
+
+    .rz-input__inner:hover {
+      border-color: transparent;
+    }
+
+    .rz-input__inner {
+      height: 100%;
+      border: none;
+      transition: none;
+      padding-left: 2px;
+      padding-right: $--space-mini;
+
+      &:focus {
+        box-shadow: none;
+        border: none;
+      }
+
+      &::-webkit-input-placeholder {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .rz-search-input-suffix {
+    line-height: $--search-input-height;
+    padding-right: $--space-small;
+    color: $--search-input-color;
+    font-size: $--font-size-large;
+    cursor: pointer;
+  }
+
+  @include e(large) {
+    height: $--search-input-large-height;
+
+    .rz-input {
+      .rz-input__inner {
+        padding-left: $--space-mini;
+      }
+    }
+
+    .rz-search-input-suffix {
+      line-height: $--search-input-large-height;
+    }
+  }
+
+  @include when(round) {
+    border-radius: $--search-input-border-radius;
+  }
+}

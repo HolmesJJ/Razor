@@ -1,0 +1,325 @@
+@import "mixins/mixins";
+@import "mixins/utils";
+@import "input-number";
+@import "tooltip";
+@import "common/var";
+
+@include b(slider) {
+  @include utils-clearfix;
+
+  @include e(runway) {
+    width: 100%;
+    height: $--slider-height;
+    margin: $--slider-margin;
+    background-color: $--slider-runway-background-color;
+    border-radius: $--slider-border-radius;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+
+    &.show-input {
+      margin-right: 77px;
+      margin-left: 8px;
+      width: auto;
+    }
+
+    &.disabled {
+      cursor: default;
+
+      .rz-slider__bar {
+        background-color: $--slider-disable-color;
+      }
+
+      .rz-slider__button {
+        border-color: $--slider-button-border-color;
+      }
+
+      .rz-slider__button-wrapper {
+
+        &:hover,
+        &.hover {
+          cursor: not-allowed;
+        }
+
+        &.dragging {
+          cursor: not-allowed;
+        }
+      }
+
+      .rz-slider__button {
+
+        &:hover,
+        &.hover,
+        &.dragging {
+          transform: scale(1);
+        }
+
+        &:hover,
+        &.hover {
+          cursor: not-allowed;
+        }
+
+        &.dragging {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  @include e(input-box) {
+    width: 47px;
+    padding: 0 8px;
+    height: 34px;
+    float: right;
+  }
+
+  @include e(input) {
+    &.rz-input {
+      margin-top: 0;
+      width: 47px;
+    }
+
+    &.rz-input--small,
+    &.rz-input--mini,
+    &.rz-input--medium,
+    &.rz-input--large {
+      font-size: $--font-size-base;
+
+      & .rz-input__inner:focus {
+        box-shadow: none;
+      }
+
+      & .rz-input__inner {
+        height: 32px;
+        line-height: 32px;
+        border: none;
+        padding: 0 16px 0 8px;
+      }
+      & .rz-input__suffix-inner {
+        line-height: 32px;
+      }
+    }
+
+    &.rz-input--small {
+      margin-top: 1px;
+    }
+
+    &.rz-input--mini {
+      margin-top: 5px;
+    }
+
+    &.rz-input--medium {
+      margin-top: 0;
+    }
+
+    &.rz-input--large {
+      margin-top: -2px;
+    }
+  }
+
+  @include e(bar) {
+    height: $--slider-height;
+    background: $--slider-main-background-color;
+    border-top-left-radius: $--slider-border-radius;
+    border-bottom-left-radius: $--slider-border-radius;
+    position: absolute;
+  }
+
+  @include e(button-wrapper) {
+    height: $--slider-button-wrapper-size;
+    width: $--slider-button-wrapper-size;
+    position: absolute;
+    z-index: 1001;
+    top: $--slider-button-wrapper-offset;
+    transform: translateX(-50%);
+    background-color: transparent;
+    text-align: center;
+    user-select: none;
+    line-height: normal;
+    @include utils-vertical-center;
+
+    .rz-tooltip {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    &:hover,
+    &.hover {
+      cursor: grab;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  @include e(button) {
+    width: $--slider-button-size;
+    height: $--slider-button-size;
+    border: solid 1px $--slider-button-border-color;
+    background-color: $--slider-button-background-color;
+    border-radius: 50%;
+    transition: .2s;
+    user-select: none;
+
+    // &:hover,
+    // &.hover,
+    // &.dragging {
+    //   transform: scale(1.2);
+    // }
+
+    &:hover,
+    &.hover {
+      cursor: grab;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  @include e(stop) {
+    position: absolute;
+    height: $--slider-height;
+    width: $--slider-height;
+    border-radius: $--border-radius-circle;
+    background-color: $--slider-stop-background-color;
+    transform: translateX(-50%);
+  }
+
+  @include e(tooltip) {
+    &.is-tooltip-light {
+      &.is-light {
+        box-shadow: none;
+        padding: $--space-undersized 2px;
+        min-width: 22px;
+        line-height: 1;
+        text-align: center;
+        border: 1px solid $--slider-tooltip-border-color;
+        color: $--color-text-contrast;
+        background-color: $--slider-tooltip-background;
+        &[x-placement^="top"] {
+          margin-bottom: #{$--space-undersized + $--slider-tooltip-arrow-size};
+        }
+
+        & .popper__arrow {
+          border-width: 4px;
+        }
+
+        &[x-placement^="top"] .popper__arrow{
+          bottom: -#{$--space-undersized + $--slider-tooltip-arrow-size};
+          border-top-color: $--slider-tooltip-background;
+          &::after {
+            // border-width: 5px;
+            border-top-color: $--slider-tooltip-background;
+          }
+        }
+
+        &[x-placement^="bottom"] .popper__arrow {
+          border-bottom-color: $--slider-tooltip-background;
+        }
+
+        &[x-placement^="right"] .popper__arrow{
+          border-right-color: $--slider-tooltip-background;
+        }
+
+        &[x-placement^="left"] .popper__arrow{
+          border-left-color: $--slider-tooltip-background;
+        }
+      }
+    }
+  }
+
+  @include when(vertical) {
+    position: relative;
+
+    .rz-slider__runway {
+      width: $--slider-height;
+      height: 100%;
+      margin: 0 16px;
+    }
+
+    .rz-slider__bar {
+      width: $--slider-height;
+      height: auto;
+      border-radius: 0 0 3px 3px;
+      background: $--slider-vertical-background-color;
+    }
+
+    .rz-slider__button-wrapper {
+      top: auto;
+      left: $--slider-button-wrapper-offset;
+      transform: translateY(50%);
+    }
+
+    .rz-slider__stop {
+      transform: translateY(50%);
+    }
+
+    &.rz-slider--with-input {
+      padding-bottom: #{$--input-medium-height + 22px};
+
+      .rz-slider__input {
+        overflow: visible;
+        float: none;
+        position: absolute;
+        bottom: 22px;
+        width: 36px;
+        margin-top: 15px;
+
+        .rz-input__inner {
+          text-align: center;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+
+        .rz-input-number__decrease,
+        .rz-input-number__increase {
+          top: $--input-small-height;
+          margin-top: -1px;
+          border: $--input-border;
+          line-height: 20px;
+          box-sizing: border-box;
+          transition: $--border-transition-base;
+        }
+
+        .rz-input-number__decrease {
+          width: 18px;
+          right: 18px;
+          border-bottom-left-radius: $--input-border-radius;
+        }
+
+        .rz-input-number__increase {
+          width: 19px;
+          border-bottom-right-radius: $--input-border-radius;
+
+          &~.rz-input .rz-input__inner {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:hover {
+
+          .rz-input-number__decrease,
+          .rz-input-number__increase {
+            border-color: $--input-hover-border;
+          }
+        }
+
+        &:active {
+
+          .rz-input-number__decrease,
+          .rz-input-number__increase {
+            border-color: $--input-focus-border;
+          }
+        }
+      }
+    }
+  }
+
+  @include when(border) {
+    border: 1px solid $--slider-border-color;
+    height: 34px;
+  }
+}

@@ -1,0 +1,81 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(scroll-box){
+  height: $--space-168;
+  position: relative;
+  overflow: hidden;
+  border:1px solid rgba($--border-color-base,1);
+  
+  &:hover{
+    i{
+      display: inline-block;
+    }
+  }
+  @include when(vertical){
+    height: 100%;
+  }
+
+  @include e(operator){
+    position: absolute;
+    height: $--space-168;
+    line-height: $--space-168;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 10;
+
+    i{
+      line-height: $--space-medium;
+      height: $--space-medium;
+      width: $--space-medium;
+      text-align: center;
+      border-radius: 50%;
+      display: inline-block;
+      color: $--color-white;
+      background: rgba($--color-black, 0.4);
+      display: none;
+      &:hover{
+        background: rgba($--color-black, 1);
+      }
+    }
+
+    &__left, &__right{
+      top: 0;
+      width: $--space-vast;
+    }
+    &__up, &__down{
+      left: 0;
+      width: 100%;
+      text-align: center;
+      height: $--space-vast;
+      line-height: $--space-vast;
+    }
+    &__left{
+      left: 0;
+      background:linear-gradient(90deg,rgba($--background-color-form,1) 0%,rgba($--background-color-form,0) 100%);
+      i{
+        margin-left: $--space-mini;
+      }
+    }
+    &__right{
+      right: 0;
+      background:linear-gradient(90deg,rgba($--background-color-form,0) 0%,rgba($--background-color-form,1) 100%);
+      i{
+        margin-left: $--space-small;
+      }
+    }
+    &__up{
+      top: 0;
+      background:linear-gradient(180deg,rgba($--background-color-form,1) 0%,rgba($--background-color-form,0) 100%);
+    }
+    &__down{
+      bottom: 0;
+      background:linear-gradient(0deg,rgba($--background-color-form,1) 0%,rgba($--background-color-form,0) 100%);
+    }
+  }
+
+  @include e(container){
+    transition: transform 0.3s;
+    width: max-content;
+  }
+}

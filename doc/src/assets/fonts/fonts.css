@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "SourceHanSansCN-Bold";
+  src: url("./SourceHanSansCN-Bold.otf");
+}
+@font-face {
+  font-family: "SourceHanSansCN-Medium";
+  src: url("./SourceHanSansCN-Medium.otf");
+}
+@font-face {
+  font-family: "SourceHanSansCN-Normal";
+  src: url("./SourceHanSansCN-Normal.otf");
+}
+@font-face {
+  font-family: "SourceHanSansCN-Regular";
+  src: url("./SourceHanSansCN-Regular.otf");
+}
+@font-face {
+  font-family: "DINCond-Black";
+  src: url("./DINCond-Black.otf");
+}
+@font-face {
+  font-family: "DINPro-Black";
+  src: url("./DINPro-Black.otf");
+}
+@font-face {
+  font-family: "DINPro-Bold";
+  src: url("#{$--font-path}/DINPro-Bold.otf");
+}
+@font-face {
+  font-family: "DINPro-Regular";
+  src: url("./DINPro-Regular.otf");
+}

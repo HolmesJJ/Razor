@@ -1,0 +1,25 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(image-close){
+  position:relative;
+  .rz-icon-close{
+    right: - $--space-small / 2;
+    top: - $--space-small / 2;
+  }
+  &:hover{
+    .rz-icon-close{
+      display: block;
+    }
+  }
+}
+/* cover upload style */
+.rz-upload-list--picture-card .rz-upload-list__item {
+  .rz-image-close{
+    &:hover{
+      .rz-icon-close{
+        display: block;
+      }
+    }
+  }
+}
